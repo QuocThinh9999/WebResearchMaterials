@@ -1,0 +1,14 @@
+INFO:     127.0.0.1:64737 - "GET /tra-cuu-ai HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:64737 - "GET /dang-nhap?next=/tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61991 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=&sort=added_desc&lan_tra_cuu_ai=4537a9ed-4036-4f12-a3ef-5d6940ce7332&nhan=phu_hop HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61991 - "GET /static/style.css?v=20260925-10 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:58251 - "GET /static/app.js?v=20260925-10 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:61134 - "POST /tra-cuu-ai HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:61134 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=165d29e4-8bca-408f-84aa-96f043a40d0e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61134 - "GET /tra-cuu-ai/165d29e4-8bca-408f-84aa-96f043a40d0e/tien-do HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61134 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=165d29e4-8bca-408f-84aa-96f043a40d0e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54971 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=&sort=added_desc&lan_tra_cuu_ai=165d29e4-8bca-408f-84aa-96f043a40d0e&nhan=phu_hop HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62558 - "POST /tra-cuu-ai HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:62558 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=cd315340-b501-41a2-8067-13cc9b3ceb89 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62558 - "GET /tra-cuu-ai/cd315340-b501-41a2-8067-13cc9b3ceb89/tien-do HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62558 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=cd315340-b501-41a2-8067-13cc9b3ceb89 HTTP/1.1" 200 OK

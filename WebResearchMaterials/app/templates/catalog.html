@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<div class="page-heading"><div><h1>{{ title }}</h1><p>Màu chấp nhận định dạng #RRGGBB hoặc #RRGGBBAA.</p></div></div>
+<section class="card">
+  <h2>Thêm trạng thái</h2>
+  <form action="/danh-muc/{{ kind }}/them" method="post" class="inline-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label>Tên<input name="name" maxlength="100" required></label>
+    <label>Màu<input name="color" type="color" value="#3B82F6" required></label>
+    <button type="submit">Thêm</button>
+  </form>
+</section>
+<div class="card-list">
+{% for item in items %}
+  <article class="card catalog-row">
+    <span class="status-tag" style="--tag-color: {{ item.mau_trang_thai }}">{{ item.ten_trang_thai }}</span>
+    <form action="/danh-muc/{{ kind }}/{{ item.id }}/sua" method="post" class="inline-form grow">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Tên<input name="name" value="{{ item.ten_trang_thai }}" maxlength="100" required></label>
+      <label>Màu<input name="color" type="color" value="{{ item.mau_trang_thai[:7] }}" required></label>
+      <button type="submit">Lưu</button>
+    </form>
+    <form action="/danh-muc/{{ kind }}/{{ item.id }}/xoa" method="post" data-confirm="Xóa trạng thái này?">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <button class="danger" type="submit">Xóa</button>
+    </form>
+  </article>
+{% else %}<div class="empty-state">Chưa có trạng thái.</div>{% endfor %}
+</div>
+{% endblock %}
+

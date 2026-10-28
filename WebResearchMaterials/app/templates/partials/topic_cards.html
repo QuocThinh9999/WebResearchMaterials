@@ -1,0 +1,37 @@
+{% for row in topics %}
+<article class="card topic-card" data-topic-card>
+  <div class="topic-card-head">
+    <span class="topic-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.5 4h8l3 3v13h-11V4Z"/><path d="M14.5 4v3h3M9.5 11h5M9.5 15h5"/></svg></span>
+    <div class="topic-card-title">
+      <h2><a href="/de-tai/{{ row.topic.id }}">{{ row.topic.ten_de_tai }}</a></h2>
+      <span class="status-tag" style="--tag-color: {{ row.status.mau_trang_thai }}">{{ row.status.ten_trang_thai }}</span>
+    </div>
+  </div>
+  <p class="topic-description">{{ row.topic.mo_ta or 'Chưa có mô tả.' }}</p>
+  <div class="topic-card-footer">
+    <div class="creator-meta"><span class="mini-avatar">{{ row.creator.ten_nguoi_dung[:1]|upper }}</span><span><strong>{{ row.creator.ten_nguoi_dung }}</strong><small>Cập nhật {{ row.topic.ngay_cap_nhat.strftime('%d/%m/%Y lúc %H:%M') }}</small></span></div>
+    <a class="ghost-action" href="/de-tai/{{ row.topic.id }}">Mở đề tài <span aria-hidden="true">→</span></a>
+  </div>
+  <details class="edit-disclosure">
+    <summary><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 16.5-.5 4 4-.5L18.75 8.75l-3.5-3.5L4 16.5ZM13.75 6.75l3.5 3.5"/></svg> Chỉnh sửa thông tin</summary>
+    <form action="/de-tai/{{ row.topic.id }}/sua" method="post" class="form-grid compact">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Tên đề tài<input name="name" value="{{ row.topic.ten_de_tai }}" maxlength="500" required></label>
+      <label>Mô tả<textarea name="description" rows="3">{{ row.topic.mo_ta or '' }}</textarea></label>
+      <label>Trạng thái<select name="status_id">{% for item in statuses|default([]) %}<option value="{{ item.id }}" {% if item.id == row.topic.id_trang_thai %}selected{% endif %}>{{ item.ten_trang_thai }}</option>{% endfor %}</select></label>
+      <div class="button-row"><button type="submit">Cập nhật</button></div>
+    </form>
+    <form action="/de-tai/{{ row.topic.id }}/xoa" method="post" data-confirm="Xóa đề tài này và các liên kết thuộc đề tài?">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <button class="danger" type="submit">Xóa đề tài</button>
+    </form>
+  </details>
+</article>
+{% else %}
+{% if topic_filters and (topic_filters.keyword or topic_filters.creator_id or topic_filters.status_id) %}
+<div class="empty-state"><span class="empty-icon">⌕</span><h2>Không có đề tài phù hợp</h2><p>Hãy thử thay đổi hoặc đặt lại điều kiện tìm kiếm.</p></div>
+{% else %}
+<div class="empty-state"><span class="empty-icon">◇</span><h2>Chưa có đề tài</h2><p>Hãy tạo đề tài đầu tiên để bắt đầu tập hợp tài liệu nghiên cứu.</p></div>
+{% endif %}
+{% endfor %}
+{% if has_more %}<div class="lazy-sentinel" data-load-base="/de-tai/tai-them" data-offset="{{ next_offset }}"><button type="button">Tải thêm</button></div>{% endif %}

@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}{{ document.tieu_de }}{% endblock %}
+{% block content %}
+<a class="back-link" href="/de-tai/{{ topic_id }}">← Trở lại đề tài</a>
+<section class="topic-hero"><h1>{{ document.tieu_de }}</h1><p class="authors">{% for author in document.tac_gia %}{{ author if author is string else (author.name or author.display_name or author.full_name) }}{% if not loop.last %}; {% endif %}{% else %}Chưa rõ tác giả{% endfor %}</p></section>
+
+<div class="detail-layout">
+  <section class="card document-info-card">
+    <h2>Thông tin tài liệu</h2>
+    <dl class="metadata-list">
+      <dt>DOI</dt><dd>{% if document.doi %}<a href="https://doi.org/{{ document.doi }}" target="_blank" rel="noopener">{{ document.doi }}</a>{% else %}—{% endif %}</dd>
+      <dt>Tóm tắt</dt><dd>{{ document.tom_tat or '—' }}</dd>
+      <dt>Từ khóa</dt><dd>{{ document.tu_khoa|join(', ') if document.tu_khoa else '—' }}</dd>
+      <dt>Loại tài liệu</dt><dd>{{ document.loai_tai_lieu or '—' }}</dd>
+      <dt>Ngôn ngữ</dt><dd>{{ document.ngon_ngu or '—' }}</dd>
+      <dt>Ngày / năm xuất bản</dt><dd>{{ document.ngay_xuat_ban or document.nam_xuat_ban or '—' }}</dd>
+      <dt>Tạp chí</dt><dd>{{ document.ten_tap_chi or '—' }}</dd>
+      <dt>ISSN</dt><dd>{{ document.issn or '—' }}</dd>
+      <dt>Nhà xuất bản</dt><dd>{{ document.nha_xuat_ban or '—' }}</dd>
+      <dt>Volume / Issue / Trang</dt><dd>{{ document.volume or '—' }} / {{ document.issue or '—' }} / {{ document.trang_hoac_so_bai or '—' }}</dd>
+      <dt>Quartile</dt><dd>{{ document.quartile or '—' }}</dd>
+      <dt>Truy cập mở</dt><dd>{{ 'Có' if document.truy_cap_mo else 'Không' }}</dd>
+      <dt>Link nguồn</dt><dd>{% if document.url_trang_goc %}<a href="{{ document.url_trang_goc }}" target="_blank" rel="noopener">Mở trang nguồn</a>{% else %}—{% endif %}</dd>
+      <dt>URL PDF</dt><dd>{% if document.url_pdf %}<a href="{{ document.url_pdf }}" target="_blank" rel="noopener">Mở PDF nguồn</a>{% else %}—{% endif %}</dd>
+    </dl>
+    <details><summary>Metadata nguồn và mã ngoài</summary><pre>{{ {'ma_ngoai': document.ma_ngoai, 'du_lieu_nguon': document.du_lieu_nguon, 'thong_tin_quartile': document.thong_tin_quartile, 'chi_so_trich_dan': document.chi_so_trich_dan}|tojson(indent=2) }}</pre></details>
+  </section>
+  <aside class="document-actions">
+    <section class="card" id="tai-pdf-trinh-duyet">
+      <h2>Tệp PDF</h2>
+      {% if pdf_file %}<p><a class="button secondary pdf-file-link" href="/tep/{{ pdf_file.id }}" target="_blank">Xem {{ pdf_file.ten_file_goc }}</a></p>{% endif %}
+      {% if not pdf_file %}
+      {% set google_query = '"' ~ document.tieu_de ~ '" filetype:pdf' %}
+      <div class="browser-download-assist">
+        <strong>Tải bằng trình duyệt cá nhân</strong>
+        <p>Mở một nguồn bên dưới, tự hoàn tất đăng nhập hoặc CAPTCHA và bấm tải PDF. Sau đó quay lại đây để chọn tệp vừa tải.</p>
+        <div class="browser-source-links">
+          {% if document.doi %}<a class="button secondary" href="https://doi.org/{{ document.doi }}" target="_blank" rel="noopener noreferrer">Mở DOI</a>{% endif %}
+          {% if document.url_trang_goc %}<a class="button secondary" href="{{ document.url_trang_goc }}" target="_blank" rel="noopener noreferrer">Mở nguồn</a>{% endif %}
+          <a class="button secondary" href="https://scholar.google.com/scholar?q={{ document.tieu_de|urlencode }}" target="_blank" rel="noopener noreferrer">Tìm trên Google Scholar</a>
+          <a class="button secondary" href="https://www.google.com/search?q={{ google_query|urlencode }}" target="_blank" rel="noopener noreferrer">Tìm trên Google</a>
+          <a class="button secondary" href="https://www.researchgate.net/search/publication?q={{ document.tieu_de|urlencode }}" target="_blank" rel="noopener noreferrer">Tìm trên ResearchGate</a>
+        </div>
+      </div>
+      {% endif %}
+      <form action="/de-tai/{{ topic_id }}/tai-lieu/{{ document.id }}/pdf" method="post" enctype="multipart/form-data" class="form-grid">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <label>PDF đã tải về<input type="file" name="pdf" accept="application/pdf,.pdf" required></label>
+        <button type="submit">Kiểm tra và lưu PDF</button>
+      </form>
+    </section>
+    <section class="card">
+      <h2>Đổi trạng thái</h2>
+      <form action="/de-tai/{{ topic_id }}/tai-lieu/{{ document.id }}/trang-thai" method="post" enctype="multipart/form-data" class="form-grid">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+        <label>Trạng thái<select name="status_id" required>{% for item in statuses %}<option value="{{ item.id }}">{{ item.ten_trang_thai }}</option>{% endfor %}</select></label>
+        <label>Lý do<textarea name="reason" rows="3"></textarea></label>
+        <label>Ảnh minh họa<input type="file" name="images" accept="image/jpeg,image/png,image/gif,image/webp" multiple></label>
+        <button type="submit">Ghi trạng thái mới</button>
+      </form>
+    </section>
+  </aside>
+</div>
+
+<section class="card current-status-card">
+  <h2>Trạng thái hiện tại theo người dùng</h2>
+  <div class="tag-group">{% for state, user, status in current_states %}<span class="status-tag" style="--tag-color: {{ status.mau_trang_thai }}">{{ user.ten_nguoi_dung }}: {{ status.ten_trang_thai }}</span>{% else %}<p>Chưa có trạng thái.</p>{% endfor %}</div>
+</section>
+<section>
+  <h2>Lịch sử thay đổi</h2>
+  <div class="timeline">
+  {% for state, user, status in history %}
+    <article class="card timeline-item">
+      <div><strong>{{ user.ten_nguoi_dung }}</strong> <span class="status-tag" style="--tag-color: {{ status.mau_trang_thai }}">{{ status.ten_trang_thai }}</span></div>
+      <p>{{ state.ly_do or 'Không có lý do.' }}</p>
+      {% if files_by_state.get(state.id) %}<div class="image-grid">{% for image in files_by_state[state.id] %}<a href="/tep/{{ image.id }}" target="_blank"><img src="/tep/{{ image.id }}" alt="Ảnh minh họa {{ loop.index }}"></a>{% endfor %}</div>{% endif %}
+      <time>{{ state.thoi_gian.strftime('%H:%M %d/%m/%Y') }}</time>
+    </article>
+  {% else %}<div class="empty-state">Chưa có lịch sử thay đổi.</div>{% endfor %}
+  </div>
+</section>
+{% endblock %}

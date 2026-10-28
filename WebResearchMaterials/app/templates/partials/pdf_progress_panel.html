@@ -1,0 +1,26 @@
+<div class="pdf-stat-grid">
+  <span><b data-pdf-total>{{ pdf_manager_progress.total if pdf_manager_progress else 0 }}</b>Tổng số</span>
+  <span><b data-pdf-waiting>{{ pdf_manager_progress.waiting if pdf_manager_progress else 0 }}</b>Đang chờ</span>
+  <span><b data-pdf-processing>{{ pdf_manager_progress.processing if pdf_manager_progress else 0 }}/{{ pdf_download_workers }}</b>Đang tải đồng thời</span>
+  <span><b data-pdf-successful>{{ pdf_manager_progress.successful if pdf_manager_progress else 0 }}</b>Đã tải thành công trong lần chạy</span>
+  <span><b data-pdf-not-found>{{ pdf_manager_progress.not_found if pdf_manager_progress else 0 }}</b>Không tìm thấy</span>
+  <span><b data-pdf-failed>{{ pdf_manager_progress.failed if pdf_manager_progress else 0 }}</b>Lỗi</span>
+</div>
+{% if pdf_manager_search %}
+<div class="progress-track"><span data-pdf-progress-bar style="width: {{ pdf_manager_progress.percent }}%"></span></div>
+<p class="pdf-progress-summary"><span data-pdf-progress-detail>Đã tải: {{ pdf_manager_progress.successful }} · Không tìm thấy: {{ pdf_manager_progress.not_found }} · Lỗi: {{ pdf_manager_progress.failed }} · Đang chờ: {{ pdf_manager_progress.waiting }}</span> · <span data-pdf-percent>{{ pdf_manager_progress.percent }}%</span></p>
+<p>Thời gian chạy: <strong data-elapsed-seconds>{{ (active_pdf_elapsed_ms if active_pdf_search else latest_pdf_elapsed_ms)|format_elapsed }}</strong></p>
+{% else %}<p>Hãy thực hiện ít nhất một lần tìm kiếm để tạo đợt tải PDF.</p>{% endif %}
+<div class="pdf-progress-actions">
+  {% if pdf_manager_search %}
+    {% if panel_kind == 'continue' %}
+    <form action="/de-tai/{{ topic_row.topic.id }}/tai-pdf/tiep-tuc" method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="search_id" value="{{ pdf_manager_search.id }}"><button type="submit">Tiếp tục tải PDF</button></form>
+    {% else %}
+    <form action="/de-tai/{{ topic_row.topic.id }}/tai-pdf/tai-lai-loi" method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="search_id" value="{{ pdf_manager_search.id }}"><button type="submit" class="secondary" data-pdf-retry-button {% if not pdf_manager_progress.failed %}disabled{% endif %}>Tải lại PDF lỗi</button></form>
+    <p data-pdf-no-failed {% if pdf_manager_progress.failed %}hidden{% endif %}>Không có công việc lỗi trong lần tìm kiếm này.</p>
+    {% endif %}
+    {% if pdf_manager_search.trang_thai_tai_pdf in ['cho_xu_ly', 'dang_xu_ly'] and not pdf_manager_search.yeu_cau_dung_tai_pdf %}
+    <form action="/de-tai/{{ topic_row.topic.id }}/lan-tim-kiem/{{ pdf_manager_search.id }}/dung-tai-pdf" method="post"><input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button type="submit" class="danger">Dừng tải PDF ngay</button></form>
+    {% endif %}
+  {% endif %}
+</div>

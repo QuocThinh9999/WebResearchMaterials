@@ -1,0 +1,20 @@
+{% for evaluation, document, link, source_numbers in ai_results %}
+<article class="card ai-result-card">
+  <div class="ai-result-card-head">
+    <span class="ai-label ai-label-{{ evaluation.nhan }}">{% if evaluation.nhan == 'phu_hop' %}Phù hợp{% elif evaluation.nhan == 'khong_phu_hop' %}Không phù hợp{% else %}Chưa đánh giá{% endif %}</span>
+    {% if evaluation.diem_phu_hop is not none %}<span class="ai-score"><b>{{ evaluation.diem_phu_hop }}</b>/100 <small>điểm phù hợp</small></span>{% endif %}
+  </div>
+  <h3><a href="/de-tai/{{ link.id_de_tai }}/tai-lieu/{{ document.id }}">{{ document.tieu_de }}</a></h3>
+  <p class="authors">{% for author in document.tac_gia %}{{ author.name or author.display_name or author }}{% if not loop.last %}, {% endif %}{% else %}Chưa có tác giả{% endfor %}</p>
+  <div class="ai-result-meta"><span>{{ document.nam_xuat_ban or 'Chưa rõ năm' }}</span><span>{{ document.nha_xuat_ban or 'Chưa rõ nhà xuất bản' }}</span><span>Nguồn: {% for number in source_numbers %}Lần {{ number }}{% if not loop.last %}, {% endif %}{% else %}—{% endfor %}</span><span>{{ evaluation.trang_thai_xu_ly|replace('_', ' ') }}</span>{% if document.id_file_pdf %}<a href="/tep/{{ document.id_file_pdf }}" target="_blank" rel="noopener">Mở PDF</a>{% endif %}</div>
+  <p class="ai-reason">{{ evaluation.ly_do or 'Hệ thống AI đang chờ xử lý tài liệu này.' }}</p>
+  {% set hard = evaluation.chi_tiet_dieu_kien.get('dieu_kien_cung', {}) %}
+  {% if hard.dat or hard.vi_pham or hard.khong_xac_dinh %}<details class="ai-evidence"><summary>Điều kiện metadata</summary><ul>{% for item in hard.dat %}<li>Đạt: {{ item }}</li>{% endfor %}{% for item in hard.vi_pham %}<li>Không đạt: {{ item }}</li>{% endfor %}{% for item in hard.khong_xac_dinh %}<li>Chưa xác định: {{ item }}</li>{% endfor %}</ul></details>{% endif %}
+  {% set condition_results = evaluation.chi_tiet_dieu_kien.get('ket_qua_tung_dieu_kien', []) %}
+  {% if condition_results %}<details class="ai-evidence"><summary>Chi tiết từng điều kiện</summary>{% for condition in condition_results %}<section><h4>{{ condition.noi_dung }}</h4><p><strong>{{ condition.trang_thai|replace('_', ' ') }}</strong> · {{ condition.diem }}/100 · trọng số {{ condition.trong_so }}{% if condition.vai_tro_khai_niem %} · {{ condition.vai_tro_khai_niem }}{% endif %}</p><p>{{ condition.giai_thich_tieng_viet }}</p>{% for evidence in condition.bang_chung %}<blockquote><p>“{{ evidence.noi_dung }}”</p><small>Trang {{ evidence.trang }} · {{ evidence.dien_giai_tieng_viet or evidence.dieu_kien }}</small></blockquote>{% endfor %}</section>{% endfor %}</details>{% endif %}
+  {% if evaluation.bang_chung %}<details class="ai-evidence"><summary>Bằng chứng đánh giá</summary>{% for evidence in evaluation.bang_chung %}<blockquote><p>“{{ evidence.noi_dung }}”</p><small>{% if evidence.trang %}Trang {{ evidence.trang }}{% else %}{{ evidence.nguon or 'Metadata' }}{% endif %} · {{ evidence.dien_giai_tieng_viet or evidence.dieu_kien }}</small></blockquote>{% endfor %}</details>{% endif %}
+</article>
+{% else %}
+<div class="empty-state"><span class="empty-icon">◇</span><h2>Chưa có kết quả trong bộ lọc này</h2><p>Kết quả sẽ xuất hiện khi tiến trình web xử lý PDF.</p></div>
+{% endfor %}
+{% if has_more %}<div class="lazy-sentinel" data-load-url="/tra-cuu-ai/{{ ai_lookup.id }}/ket-qua/tai-them?offset={{ next_offset }}{% if selected_label %}&nhan={{ selected_label }}{% endif %}{% if score_greater_than is not none %}&diem_lon_hon={{ score_greater_than }}{% endif %}"><button type="button" class="secondary">Tải thêm</button></div>{% endif %}

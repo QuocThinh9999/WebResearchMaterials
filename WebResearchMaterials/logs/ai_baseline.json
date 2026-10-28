@@ -1,0 +1,23 @@
+{
+  "model": "qwen3:4b",
+  "ollama_version": "0.34.4",
+  "baseline_run": {
+    "request": "Không lấy từ các nhà xuất bản MDPI",
+    "status": "timeout",
+    "parse_timeout_seconds": 300,
+    "generated_tokens_before_cancel_approximately": 479,
+    "generation_tokens_per_second_approximately": 1.89,
+    "cold_total_seconds": null,
+    "warm_total_seconds": null,
+    "median_seconds": null,
+    "p95_seconds": null,
+    "reason": "Bước phân tích yêu cầu cũ không hoàn thành trước timeout nên không thể đo các giai đoạn tiếp theo trong một lượt tra cứu hoàn chỉnh."
+  },
+  "isolated_old_pipeline": {
+    "pdf_read_seconds": 0.0069592,
+    "chunk_seconds": 0.0000567,
+    "embedding_seconds": 11.5718743,
+    "embedding_ollama_calls": 1,
+    "embedding_prompt_eval_count": 673
+  }
+}

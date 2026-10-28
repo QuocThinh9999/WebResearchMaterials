@@ -1,0 +1,64 @@
+[
+  {
+    "parallelism": 1,
+    "wall_seconds": 14.449,
+    "throughput_per_minute": 4.15,
+    "median_request_seconds": 14.442,
+    "p95_request_seconds": 14.442,
+    "calls": [
+      {
+        "seconds": 14.442,
+        "eval_count": 6,
+        "prompt_eval_count": 21
+      }
+    ]
+  },
+  {
+    "parallelism": 2,
+    "wall_seconds": 6.393,
+    "throughput_per_minute": 18.77,
+    "median_request_seconds": 4.7885,
+    "p95_request_seconds": 6.329,
+    "calls": [
+      {
+        "seconds": 3.248,
+        "eval_count": 6,
+        "prompt_eval_count": 21
+      },
+      {
+        "seconds": 6.329,
+        "eval_count": 6,
+        "prompt_eval_count": 21
+      }
+    ]
+  },
+  {
+    "parallelism": 4,
+    "wall_seconds": 11.777,
+    "throughput_per_minute": 20.38,
+    "median_request_seconds": 7.605499999999999,
+    "p95_request_seconds": 11.616,
+    "calls": [
+      {
+        "seconds": 3.34,
+        "eval_count": 6,
+        "prompt_eval_count": 21
+      },
+      {
+        "seconds": 6.258,
+        "eval_count": 6,
+        "prompt_eval_count": 21
+      },
+      {
+        "seconds": 8.953,
+        "eval_count": 6,
+        "prompt_eval_count": 21
+      },
+      {
+        "seconds": 11.616,
+        "eval_count": 6,
+        "prompt_eval_count": 21
+      }
+    ]
+  }
+]

@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}{{ topic_row.topic.ten_de_tai }}{% endblock %}
+{% block content %}
+<a class="back-link" href="/de-tai">← Danh sách đề tài</a>
+<section class="topic-hero">
+  <div class="topic-hero-content">
+    <div class="topic-hero-label"><span class="eyebrow">Đề tài nghiên cứu</span><span class="status-tag" style="--tag-color: {{ topic_row.status.mau_trang_thai }}">{{ topic_row.status.ten_trang_thai }}</span></div>
+    <h1>{{ topic_row.topic.ten_de_tai }}</h1>
+    <p>{{ topic_row.topic.mo_ta or 'Chưa có mô tả.' }}</p>
+    <div class="creator-meta hero-creator"><span class="mini-avatar">{{ topic_row.creator.ten_nguoi_dung[:1]|upper }}</span><span><small>Người tạo</small><strong>{{ topic_row.creator.ten_nguoi_dung }}</strong></span></div>
+  </div>
+  <div class="hero-art" aria-hidden="true"><span></span><span></span><span></span></div>
+</section>
+
+<details class="card feature-panel search-panel">
+  <summary class="panel-summary">
+    <span class="panel-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5M10.5 7.5v6M7.5 10.5h6"/></svg></span>
+    <span><strong>Tìm tài liệu học thuật</strong><small>Truy vấn đồng thời Scopus và Web of Science</small></span>
+    <span class="summary-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="panel-note">Có thể dùng riêng từng ô hoặc kết hợp cả <strong>OR</strong> và <strong>AND</strong>. Bộ lọc Q dùng CiteScore của tạp chí trên Scopus; chọn cả Q1–Q4 sẽ lấy mọi tài liệu xác định được Q.</div>
+  <form action="/de-tai/{{ topic_row.topic.id }}/tim-kiem" method="post" class="form-grid search-form" data-search-form>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label class="search-keyword-field"><span class="field-label">Từ khóa hoặc cụm từ <strong class="logic-pill logic-or">OR</strong></span>
+      <input name="keywords" placeholder="online banking, customer experience, customer satisfaction">
+      <small class="hint">Chỉ cần tài liệu chứa ít nhất một từ hoặc cụm từ được phân cách bằng dấu phẩy.</small>
+    </label>
+    <label class="search-keyword-field"><span class="field-label">Từ khóa hoặc cụm từ <strong class="logic-pill logic-and">AND</strong></span>
+      <input name="keywords_and" placeholder="online banking, customer experience, customer satisfaction">
+      <small class="hint">Tài liệu bắt buộc phải chứa tất cả từ hoặc cụm từ được phân cách bằng dấu phẩy.</small>
+    </label>
+    <label>Tiêu đề<input name="title"></label>
+    <label>Tác giả<input name="author"></label>
+    <div class="two-cols"><label>Năm từ<input type="number" name="year_from" min="1000" max="9999"></label><label>Đến<input type="number" name="year_to" min="1000" max="9999"></label></div>
+    <label>Loại tài liệu<input name="document_type" placeholder="Article, Review..."></label>
+    <label>Ngôn ngữ<input name="language" placeholder="en, vi..."></label>
+    <fieldset><legend>Quartile</legend><label><input type="checkbox" name="q1" value="1"> Q1</label><label><input type="checkbox" name="q2" value="1"> Q2</label><label><input type="checkbox" name="q3" value="1"> Q3</label><label><input type="checkbox" name="q4" value="1"> Q4</label></fieldset>
+    <fieldset><legend>Tùy chọn</legend><label><input type="checkbox" name="open_access" value="1"> Chỉ truy cập mở</label></fieldset>
+    <fieldset><legend>Nguồn tìm kiếm</legend><label><input type="checkbox" name="source_scopus" value="1" checked> Scopus</label><label><input type="checkbox" name="source_wos" value="1"> Web of Science</label></fieldset>
+    <button type="submit" data-submit-text="Đang tìm và tải PDF" data-search-clock>Tìm và lưu tài liệu</button>
+  </form>
+</details>
+
+<details class="card pdf-downloader" data-pdf-downloader{% if pdf_manager_search %} data-search-progress-url="/de-tai/{{ topic_row.topic.id }}/lan-tim-kiem/{{ pdf_manager_search.id }}/tien-do-pdf" data-search-progress-status="{{ pdf_manager_search.trang_thai_tai_pdf }}" data-elapsed-ms="{{ active_pdf_elapsed_ms if active_pdf_search else latest_pdf_elapsed_ms }}"{% endif %}>
+  <summary class="pdf-downloader-heading">
+    <div><span class="eyebrow">Quản lý tệp</span><h2>Quản lý PDF</h2></div>
+    {% if pdf_manager_search %}<strong>Lần {{ pdf_manager_search.lan }} · <span data-elapsed-seconds>{{ (active_pdf_elapsed_ms if active_pdf_search else latest_pdf_elapsed_ms)|format_elapsed }}</span></strong>{% endif %}
+    <span class="summary-chevron" aria-hidden="true"></span>
+  </summary>
+  {% if pdf_browser_enabled %}
+  <form action="/de-tai/{{ topic_row.topic.id }}/tai-pdf/ket-noi-chrome" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <button type="submit" class="secondary">{{ 'Đã kết nối Chrome thường' if pdf_personal_chrome_connected else 'Kết nối Chrome thường để tải PDF' }}</button>
+  </form>
+  {% endif %}
+  {% if available_searches %}
+  <form method="get" action="/de-tai/{{ topic_row.topic.id }}" class="pdf-search-picker">
+    <label>Lần tìm kiếm
+      <select name="pdf_search_id" onchange="this.form.submit()">
+        {% for item in available_searches %}<option value="{{ item.id }}" {% if pdf_manager_search and item.id == pdf_manager_search.id %}selected{% endif %}>Lần {{ item.lan }}</option>{% endfor %}
+      </select>
+    </label>
+    <button type="submit">Xem tiến độ</button>
+  </form>
+  {% endif %}
+  <div class="pdf-tabs" role="tablist" aria-label="Quản lý tải PDF">
+    <button type="button" role="tab" id="pdf-tab-continue" aria-controls="pdf-panel-continue" aria-selected="true" data-pdf-tab="continue">Tiếp tục tải</button>
+    <button type="button" role="tab" id="pdf-tab-failed" aria-controls="pdf-panel-failed" aria-selected="false" data-pdf-tab="failed">Tải lại lỗi <span data-pdf-failed-count>{{ pdf_manager_progress.failed if pdf_manager_progress else 0 }}</span></button>
+  </div>
+  <div class="pdf-tab-content">
+    <section role="tabpanel" id="pdf-panel-continue" aria-labelledby="pdf-tab-continue" data-pdf-tab-panel="continue">
+      {% set panel_kind = 'continue' %}{% include 'partials/pdf_progress_panel.html' %}
+    </section>
+    <section role="tabpanel" id="pdf-panel-failed" aria-labelledby="pdf-tab-failed" data-pdf-tab-panel="failed">
+      <div class="pdf-failed-heading"><strong>Tổng số công việc lỗi cần thử lại: <span data-pdf-failed-count>{{ pdf_manager_progress.failed if pdf_manager_progress else 0 }}</span></strong></div>
+      {% set panel_kind = 'failed' %}{% include 'partials/pdf_progress_panel.html' %}
+    </section>
+  </div>
+</details>
+
+<details class="card feature-panel history-panel">
+  <summary class="panel-summary">
+    <span class="panel-icon subtle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.35-5.65L4 8.7M4 4v4.7h4.7M12 7.5V12l3 2"/></svg></span>
+    <span><strong>Lịch sử tìm kiếm</strong><small>{{ search_history|length }} lần gần nhất đã được lưu</small></span>
+    <span class="summary-chevron" aria-hidden="true"></span>
+  </summary>
+  <div class="history-list">
+  {% for item in search_history %}
+    <div class="history-row"><strong>Lần {{ item.lan }}</strong><span>{{ item.thoi_gian.strftime('%d/%m/%Y %H:%M') }}</span><span>{{ item.tong_ket_qua if item.tong_ket_qua is not none else 'Đang xử lý' }} kết quả</span><span>{{ item.so_tai_lieu_moi if item.so_tai_lieu_moi is not none else 0 }} mới</span><span>{% if item.thoi_gian_chay_ms is not none %}{{ item.thoi_gian_chay_ms|format_elapsed }}{% else %}Đang chạy{% endif %}</span></div>
+  {% else %}<p>Chưa có lần tìm kiếm nào.</p>{% endfor %}
+  </div>
+</details>
+
+<section class="documents-section">
+  <div class="section-heading"><div><span class="eyebrow">Thư viện đề tài</span><h2>Tài liệu trong đề tài</h2><p>Lọc nhanh theo nội dung, tác giả, năm xuất bản và trạng thái.</p></div><div class="document-actions"><strong class="document-count">Tổng số: {{ document_count }} tài liệu</strong><a class="button secondary" href="/de-tai/{{ topic_row.topic.id }}/tai-pdf/tai-tat-ca{% if request.url.query %}?{{ request.url.query }}{% endif %}">Tải tất cả PDF</a></div></div>
+  {% if ai_lookup and ai_lookup.dieu_kien_ai %}<details class="card ai-understanding"><summary>Điều hệ thống AI đã hiểu</summary><div><p>{{ ai_lookup.dieu_kien_ai.dien_giai_ngan_gon }}</p><ol>{% for condition in ai_lookup.dieu_kien_ai.dieu_kien_nguyen_tu %}<li><strong>{{ condition.loai|replace('_', ' ') }}</strong> · {{ condition.noi_dung }} · trọng số {{ condition.trong_so }}</li>{% endfor %}</ol></div></details>{% endif %}
+  <details class="filter-panel">
+    <summary class="button secondary filter-toggle">Bộ lọc tài liệu <span class="summary-chevron" aria-hidden="true"></span></summary>
+  <form method="get" action="/de-tai/{{ topic_row.topic.id }}" class="filter-bar">
+    <input name="keyword" value="{{ filters.keyword or '' }}" placeholder="Từ khóa">
+    <input name="author" value="{{ filters.author or '' }}" placeholder="Tác giả">
+    <input type="number" name="year_from" value="{{ filters.year_from or '' }}" placeholder="Năm từ" min="1000" max="9999">
+    <input type="number" name="year_to" value="{{ filters.year_to or '' }}" placeholder="Năm đến" min="1000" max="9999">
+    <select name="status_id"><option value="">Mọi trạng thái</option><option value="without_status" {% if filters.without_status %}selected{% endif %}>Không có trạng thái</option>{% for item in document_statuses %}<option value="{{ item.id }}" {% if filters.status_id == item.id %}selected{% endif %}>{{ item.ten_trang_thai }}</option>{% endfor %}</select>
+    <select name="quartile"><option value="">Mọi quartile</option>{% for q in ['Q1','Q2','Q3','Q4'] %}<option value="{{ q }}" {% if filters.quartile == q %}selected{% endif %}>{{ q }}</option>{% endfor %}</select>
+    <select name="pdf_status"><option value="">Tình trạng PDF: Tất cả</option><option value="co_pdf" {% if filters.pdf_status == 'co_pdf' %}selected{% endif %}>Có PDF</option><option value="khong_pdf" {% if filters.pdf_status == 'khong_pdf' %}selected{% endif %}>Không có PDF</option></select>
+    <select name="sort"><option value="added_desc" {% if filters.sort == 'added_desc' %}selected{% endif %}>Thêm mới nhất</option><option value="added_asc" {% if filters.sort == 'added_asc' %}selected{% endif %}>Thêm cũ nhất</option><option value="year_desc" {% if filters.sort == 'year_desc' %}selected{% endif %}>Năm giảm dần</option><option value="year_asc" {% if filters.sort == 'year_asc' %}selected{% endif %}>Năm tăng dần</option></select>
+    <select name="lan_tra_cuu_ai"><option value="">Mọi lần đánh giá AI</option>{% for item in ai_lookups %}<option value="{{ item.id }}" {% if ai_lookup and item.id == ai_lookup.id %}selected{% endif %}>{{ item.ngay_tao.strftime('%d/%m/%Y %H:%M') }} · {% if item.thoi_gian_chay_ms is not none %}{{ item.thoi_gian_chay_ms|format_elapsed }}{% else %}Đang chạy{% endif %} · {{ item.trang_thai|replace('_', ' ') }}</option>{% endfor %}</select>
+    <select name="nhan"><option value="">Mọi đánh giá AI</option><option value="phu_hop" {% if filters.ai_label == 'phu_hop' %}selected{% endif %}>Phù hợp</option><option value="khong_phu_hop" {% if filters.ai_label == 'khong_phu_hop' %}selected{% endif %}>Không phù hợp</option><option value="chua_danh_gia" {% if filters.ai_label == 'chua_danh_gia' %}selected{% endif %}>Chưa đánh giá</option></select>
+    <label class="search-round-filter"><span>Lần tìm kiếm</span>
+      <select name="search_numbers" multiple size="{% if available_searches|length < 4 %}{{ available_searches|length if available_searches else 1 }}{% else %}4{% endif %}" {% if not available_searches %}disabled{% endif %}>
+        {% for item in available_searches %}<option value="{{ item.lan }}" {% if item.lan in filters.search_numbers %}selected{% endif %}>Lần {{ item.lan }} · {{ item.tong_ket_qua or 0 }} kết quả</option>{% else %}<option>Chưa có lần tìm kiếm</option>{% endfor %}
+      </select>
+      <small>Giữ Ctrl hoặc Command để chọn nhiều lần, ví dụ lần 1 và lần 3.</small>
+    </label>
+    <button type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg> Áp dụng</button>
+    <a class="button secondary" href="/de-tai/{{ topic_row.topic.id }}">Đặt lại</a>
+  </form>
+  </details>
+  <div id="document-list" class="card-list">
+    {% set topic_id = topic_row.topic.id %}
+    {% include "partials/document_cards.html" %}
+  </div>
+</section>
+{% endblock %}

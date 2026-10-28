@@ -1,0 +1,17 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+uploads/
+.pdf-browser-profile/
+.browser-tools/node_modules/
+.browser-tools/*.network-response
+.browser-tools/pdf-js-output.json
+.pdf-server-*.log
+.tmp_docx_review/
+.ollama-runtime/
+.ollama-models/
+.ollama-logs/

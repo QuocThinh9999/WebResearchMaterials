@@ -1,0 +1,727 @@
+{
+  "cases": [
+    {
+      "parse_s": 0.0028324000304564834,
+      "total_s": 0.01251530006993562,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "cold"
+    },
+    {
+      "parse_s": 0.00010800000745803118,
+      "total_s": 0.0002598999999463558,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 7.569999434053898e-05,
+      "total_s": 0.00017209991347044706,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 7.43999844416976e-05,
+      "total_s": 0.00016199995297938585,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.860009256750345e-05,
+      "total_s": 0.0001876000314950943,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 7.660000119358301e-05,
+      "total_s": 0.00016409996896982193,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.829997386783361e-05,
+      "total_s": 0.00020080001559108496,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 0.00010459998156875372,
+      "total_s": 0.00023300002794712782,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 9.26000066101551e-05,
+      "total_s": 0.000206399941816926,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 0.00010639999527484179,
+      "total_s": 0.0002012000186368823,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 7.479998748749495e-05,
+      "total_s": 0.00016189995221793652,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 6.929994560778141e-05,
+      "total_s": 0.00015480001457035542,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.929998148232698e-05,
+      "total_s": 0.00019479996990412474,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 7.469998672604561e-05,
+      "total_s": 0.00015519990120083094,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.029991295188665e-05,
+      "total_s": 0.00018179998733103275,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 7.760000880807638e-05,
+      "total_s": 0.00017180002760142088,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 9.009998757392168e-05,
+      "total_s": 0.00019839999731630087,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.039991371333599e-05,
+      "total_s": 0.0001772999530658126,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 6.310001481324434e-05,
+      "total_s": 0.0001433000434190035,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 0.00012280000373721123,
+      "total_s": 0.00023030000738799572,
+      "label": "khong_phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Không lấy từ các nhà xuất bản MDPI",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.140003774315119e-05,
+      "cache_hit": false,
+      "pdf_s": 0.020399500033818185,
+      "chunk_s": 5.200004670768976e-05,
+      "cache_access_s": 0.042758499970659614,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.08567530009895563,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "cold"
+    },
+    {
+      "parse_s": 0.00015709991566836834,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.00525970000308007,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.005656399996951222,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.469994645565748e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.00232040008995682,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0025228000013157725,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.219992741942406e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.002019600011408329,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0022074999287724495,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.519995026290417e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.002749199979007244,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0029455999610945582,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.420005906373262e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0027411000337451696,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0029328999808058143,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 7.609999738633633e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0022461999906226993,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0024178000167012215,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 7.389998063445091e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0026702999603003263,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0028418999863788486,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.220004383474588e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.010857000015676022,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.01105890003964305,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 0.00010679999832063913,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.002735299989581108,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0029730999376624823,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 0.00010850001126527786,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0027935000834986567,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0030218999600037932,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 0.00010030006524175406,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.002541600028052926,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.002784100011922419,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 9.200000204145908e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.002274200087413192,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0024814000353217125,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.389994036406279e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0022828999208286405,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0024759999942034483,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.44000605866313e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.001955099985934794,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.002146200044080615,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.180004078894854e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0018904999596998096,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0020785999950021505,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 9.42000187933445e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0020800000056624413,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0022872999543324113,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 9.42000187933445e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0017163000302389264,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0019228000892326236,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.100003469735384e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.0021371999755501747,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.002329000039026141,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    },
+    {
+      "parse_s": 8.210004307329655e-05,
+      "cache_hit": true,
+      "pdf_s": 0,
+      "chunk_s": 0,
+      "cache_access_s": 0.002471499959938228,
+      "decision": {
+        "status": "matched",
+        "confidence": 95,
+        "evidence": [
+          {
+            "page": 4,
+            "section": "conceptual framework",
+            "text": "Conceptual Framework Customer Satisfaction is a dependent variable in our research model. Hypothesis H2 tests its relationship with service quality."
+          }
+        ],
+        "reason": "Các khái niệm được nêu rõ là biến trong mô hình hoặc giả thuyết của nghiên cứu."
+      },
+      "llm_s": 0,
+      "embedding_s": 0,
+      "total_s": 0.0026716000866144896,
+      "label": "phu_hop",
+      "ollama_calls": 0,
+      "calls": [],
+      "request": "Trong mô hình phải có Customer Satisfaction",
+      "run": "warm"
+    }
+  ],
+  "median_s": 0.002000700042117387,
+  "p95_s": 0.01105890003964305,
+  "documents_per_minute": 14860.4
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Có lỗi xảy ra{% endblock %}
+{% block content %}
+<section class="empty-state">
+  <h1>Không thể hoàn tất yêu cầu</h1>
+  <p>{{ message }}</p>
+  <a class="button" href="/de-tai">Về danh sách đề tài</a>
+</section>
+{% endblock %}
+

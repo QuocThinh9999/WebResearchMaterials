@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Quản lý tài khoản{% endblock %}
+{% block content %}
+<div class="page-heading"><div><h1>Quản lý tài khoản</h1><p>Mọi tài khoản đang hoạt động có quyền sử dụng như nhau.</p></div></div>
+<section class="card">
+  <h2>Thêm tài khoản</h2>
+  <form action="/tai-khoan/them" method="post" class="inline-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label>Tên đăng nhập<input name="username" maxlength="100" required></label>
+    <label>Tên người dùng<input name="full_name" maxlength="255" required></label>
+    <label>Mật khẩu<input type="password" name="password" minlength="8" required autocomplete="new-password"></label>
+    <button type="submit">Thêm</button>
+  </form>
+</section>
+<div class="card-list">
+{% for user in users %}
+<article class="card user-row">
+  <div><strong>{{ user.ten_nguoi_dung }}</strong><div class="meta">{{ user.ten_dang_nhap }} · {% if user.dang_hoat_dong %}Đang hoạt động{% else %}Đã ngừng{% endif %}</div></div>
+  <details class="grow"><summary>Chỉnh sửa</summary>
+    <form action="/tai-khoan/{{ user.id }}/sua" method="post" class="inline-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Tên đăng nhập<input name="username" value="{{ user.ten_dang_nhap }}" maxlength="100" required></label>
+      <label>Tên người dùng<input name="full_name" value="{{ user.ten_nguoi_dung }}" maxlength="255" required></label>
+      <label>Mật khẩu mới<input type="password" name="password" minlength="8" placeholder="Để trống nếu giữ nguyên"></label>
+      <button type="submit">Lưu</button>
+    </form>
+  </details>
+  <form action="/tai-khoan/{{ user.id }}/hoat-dong" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <button class="secondary" type="submit">{% if user.dang_hoat_dong %}Ngừng hoạt động{% else %}Kích hoạt{% endif %}</button>
+  </form>
+  <form action="/tai-khoan/{{ user.id }}/xoa" method="post" data-confirm="Xóa tài khoản này?">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <button class="danger" type="submit" {% if user.id == current_user.id %}disabled title="Không thể tự xóa tài khoản đang đăng nhập"{% endif %}>Xóa</button>
+  </form>
+</article>
+{% endfor %}
+</div>
+{% endblock %}
+

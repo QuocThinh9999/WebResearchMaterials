@@ -1,0 +1,18 @@
+Metadata-Version: 2.4
+Name: web-research-materials
+Version: 1.0.0
+Summary: Ứng dụng nội bộ quản lý đề tài và tài liệu nghiên cứu
+Requires-Python: >=3.11
+Requires-Dist: fastapi<1,>=0.115
+Requires-Dist: uvicorn[standard]<1,>=0.32
+Requires-Dist: sqlalchemy<3,>=2.0.36
+Requires-Dist: psycopg[binary]<4,>=3.2.3
+Requires-Dist: pydantic-settings<3,>=2.6
+Requires-Dist: jinja2<4,>=3.1.4
+Requires-Dist: python-multipart<1,>=0.0.17
+Requires-Dist: pwdlib[argon2]<1,>=0.2.1
+Requires-Dist: itsdangerous<3,>=2.2
+Requires-Dist: httpx<1,>=0.27
+Requires-Dist: PyMuPDF<2,>=1.24
+Provides-Extra: dev
+Requires-Dist: pytest<9,>=8.3; extra == "dev"

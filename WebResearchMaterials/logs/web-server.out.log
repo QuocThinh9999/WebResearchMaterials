@@ -1,0 +1,19 @@
+INFO:     127.0.0.1:63318 - "GET /tra-cuu-ai HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:59454 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/tai-lieu/tai-them?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&offset=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59454 - "GET /tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59454 - "GET /static/style.css?v=20260925-10 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:59454 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59454 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/tai-lieu/ec867d48-d01d-4e04-bef0-2922225d1095 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59454 - "GET /tep/5fdc3fcb-ce55-470f-ac63-57c2928e61da HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55795 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/tai-lieu/a71c988c-d672-45d4-bb7a-e93cecfcf96b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55795 - "GET /tep/40cd38bb-6c97-48e4-8521-4c2800d7a11f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52199 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52199 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/tai-lieu/5845188b-a9dd-46f3-b0c2-c21a21b50078 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52199 - "GET /tep/da4395d2-3def-4e3e-9b83-6ebe7cdbbf8e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63735 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62948 - "GET /tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62948 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65388 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=&sort=added_desc&lan_tra_cuu_ai=4537a9ed-4036-4f12-a3ef-5d6940ce7332&nhan= HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54571 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=&sort=added_desc&lan_tra_cuu_ai=4537a9ed-4036-4f12-a3ef-5d6940ce7332&nhan=phu_hop HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55636 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=&sort=added_desc&lan_tra_cuu_ai=4537a9ed-4036-4f12-a3ef-5d6940ce7332&nhan=phu_hop HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55636 - "GET /static/style.css?v=20260925-10 HTTP/1.1" 304 Not Modified

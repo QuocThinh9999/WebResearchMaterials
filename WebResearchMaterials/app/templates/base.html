@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>{% block title %}Quản lý nghiên cứu{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}?v=20260925-10">
+  <script src="{{ url_for('static', path='/app.js') }}?v=20260925-10" defer></script>
+</head>
+<body class="{% if current_user %}app-page{% else %}auth-page{% endif %}">
+  {% if current_user %}
+  <div class="app-shell">
+    <aside class="app-sidebar" id="app-sidebar">
+      <a class="brand" href="/de-tai" aria-label="Về danh sách đề tài">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 3.75h7.5a3 3 0 0 1 3 3v13.5h-7.5a3 3 0 0 1-3-3V3.75Z"/><path d="M17.25 6.75h.75a2.25 2.25 0 0 1 2.25 2.25v11.25h-7.5a3 3 0 0 1-3-3"/></svg>
+        </span>
+        <span class="brand-copy"><strong>Kho nghiên cứu</strong><small>Không gian học thuật</small></span>
+      </a>
+      <div class="workspace-card">
+        <span class="workspace-icon">KN</span>
+        <span><small>Không gian làm việc</small><strong>Nghiên cứu nội bộ</strong></span>
+      </div>
+      <span class="nav-label">Quản lý</span>
+      <nav class="side-nav" aria-label="Điều hướng chính">
+        <a href="/de-tai" class="{% if request.url.path.startswith('/de-tai') %}active{% endif %}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.75A1.75 1.75 0 0 1 5.75 4h4.5A1.75 1.75 0 0 1 12 5.75v4.5A1.75 1.75 0 0 1 10.25 12h-4.5A1.75 1.75 0 0 1 4 10.25v-4.5ZM12 13.75A1.75 1.75 0 0 1 13.75 12h4.5A1.75 1.75 0 0 1 20 13.75v4.5A1.75 1.75 0 0 1 18.25 20h-4.5A1.75 1.75 0 0 1 12 18.25v-4.5ZM14 4h4.25A1.75 1.75 0 0 1 20 5.75V10M4 14v4.25A1.75 1.75 0 0 0 5.75 20H10"/></svg>
+          <span>Đề tài nghiên cứu</span>
+        </a>
+        <a href="/tra-cuu-ai" class="{% if request.url.path.startswith('/tra-cuu-ai') %}active{% endif %}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg>
+          <span>Tra cứu bằng AI</span>
+        </a>
+        <a href="/tai-khoan" class="{% if request.url.path.startswith('/tai-khoan') %}active{% endif %}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.25 7.25a3.25 3.25 0 1 1-6.5 0 3.25 3.25 0 0 1 6.5 0ZM5 20a7 7 0 0 1 14 0M18 8.5a2.5 2.5 0 0 1 0 5M20.5 16.25c1.5.75 2.25 2 2.25 3.75"/></svg>
+          <span>Tài khoản</span>
+        </a>
+        <a href="/danh-muc/de-tai" class="{% if request.url.path.startswith('/danh-muc/de-tai') %}active{% endif %}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h10M7 4v5M12 9.5v5M17 15v5"/></svg>
+          <span>Trạng thái đề tài</span>
+        </a>
+        <a href="/danh-muc/tai-lieu" class="{% if request.url.path.startswith('/danh-muc/tai-lieu') %}active{% endif %}">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.75h8l4 4v12.5H6V3.75Z"/><path d="M14 3.75v4h4M9 12h6M9 16h6"/></svg>
+          <span>Trạng thái tài liệu</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="account-box">
+          <span class="user-avatar" aria-hidden="true">{{ current_user.ten_nguoi_dung[:1]|upper }}</span>
+          <span class="account-copy"><strong>{{ current_user.ten_nguoi_dung }}</strong><small>{{ current_user.ten_dang_nhap }}</small></span>
+        </div>
+        <form action="/dang-xuat" method="post">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+          <button class="icon-button" type="submit" title="Đăng xuất" aria-label="Đăng xuất">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8V5.75A1.75 1.75 0 0 0 12.25 4h-6.5A1.75 1.75 0 0 0 4 5.75v12.5A1.75 1.75 0 0 0 5.75 20h6.5A1.75 1.75 0 0 0 14 18.25V16M10 12h10M17 9l3 3-3 3"/></svg>
+          </button>
+        </form>
+      </div>
+    </aside>
+    <button class="sidebar-backdrop" type="button" data-sidebar-close aria-label="Đóng trình đơn"></button>
+    <div class="app-stage">
+      <header class="topbar">
+        <button class="menu-button" type="button" data-sidebar-toggle aria-controls="app-sidebar" aria-expanded="false" aria-label="Mở trình đơn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <div class="topbar-title"><span>Không gian làm việc</span><strong>Kho tài liệu học thuật</strong></div>
+        <div class="topbar-badge"><span></span> Hệ thống nội bộ</div>
+      </header>
+      <main class="container">
+  {% else %}
+  <main class="container narrow">
+  {% endif %}
+    {% if flash %}<div class="alert {{ flash.category }}" role="status">{{ flash.message }}</div>{% endif %}
+    {% block content %}{% endblock %}
+  </main>
+  {% if current_user %}
+    </div>
+  </div>
+  {% endif %}
+</body>
+</html>

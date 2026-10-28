@@ -1,0 +1,25 @@
+{% for row in documents %}
+<article class="card document-card" data-document-card>
+  <div class="pdf-status-line"><span class="status-tag">{% if row.pdf_job_status %}Đang tải PDF{% elif row.document.id_file_pdf %}Có PDF{% else %}Chưa có PDF{% endif %}</span></div>
+  {% if row.ai_evaluation %}<div class="ai-document-summary"><span class="ai-label ai-label-{{ row.ai_evaluation.nhan }}">{% if row.ai_evaluation.nhan == 'phu_hop' %}AI: Phù hợp{% elif row.ai_evaluation.nhan == 'khong_phu_hop' %}AI: Không phù hợp{% else %}AI: Chưa đánh giá{% endif %}</span>{% if row.ai_evaluation.diem_phu_hop is not none %}<strong>{{ row.ai_evaluation.diem_phu_hop|round|int }}/100</strong>{% endif %}</div>{% endif %}
+  <div class="document-card-head">
+    <span class="document-symbol" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3.75h8l4 4v12.5H6V3.75Z"/><path d="M14 3.75v4h4M9 12h6M9 16h4"/></svg></span>
+    <div class="tag-group">
+    {% for tag in row.status_tags %}<span class="status-tag" style="--tag-color: {{ tag.color }}" title="{{ tag.users|join(', ') }}">{{ tag.name }} · {{ tag.count }}</span>{% endfor %}
+    </div>
+    <div class="search-round-tags" title="Các lần tìm kiếm đã phát hiện tài liệu này">
+      <span class="search-round-label">Tìm thấy ở</span>
+      {% for number in row.search_numbers %}<span class="search-round-tag">Lần {{ number }}</span>{% else %}<span class="search-round-tag unknown">Chưa xác định</span>{% endfor %}
+    </div>
+  </div>
+  <h3><a href="/de-tai/{{ topic_id }}/tai-lieu/{{ row.document.id }}">{{ row.document.tieu_de }}</a></h3>
+  <p class="authors">{% for author in row.document.tac_gia %}{{ author if author is string else (author.name or author.display_name or author.full_name) }}{% if not loop.last %}; {% endif %}{% else %}Chưa rõ tác giả{% endfor %}</p>
+  <div class="metadata-grid">
+    <span><small>Năm</small><strong>{{ row.document.nam_xuat_ban or '—' }}</strong></span><span><small>Nguồn</small><strong>{{ row.document.ten_tap_chi or row.document.nha_xuat_ban or '—' }}</strong></span><span><small>DOI</small><strong>{{ row.document.doi or '—' }}</strong></span><span><small>Quartile</small><strong>{{ row.document.quartile or '—' }}</strong></span><span><small>Truy cập mở</small><strong>{{ 'Có' if row.document.truy_cap_mo else 'Không' }}</strong></span>
+  </div>
+  {% if not row.document.id_file_pdf %}<a class="browser-download-link" href="/de-tai/{{ topic_id }}/tai-lieu/{{ row.document.id }}#tai-pdf-trinh-duyet">Tải PDF qua trình duyệt</a>{% endif %}
+</article>
+{% else %}<div class="empty-state"><span class="empty-icon">⌕</span><h2>Không có tài liệu phù hợp</h2><p>Thử thay đổi bộ lọc hoặc thực hiện một lần tìm kiếm mới.</p></div>{% endfor %}
+{% if has_more %}
+<div class="lazy-sentinel" data-load-base="/de-tai/{{ topic_id }}/tai-lieu/tai-them" data-offset="{{ next_offset }}"><button type="button">Tải thêm</button></div>
+{% endif %}

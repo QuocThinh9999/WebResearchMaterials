@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Tra cứu bằng AI{% endblock %}
+{% block content %}
+<section class="ai-hero">
+  <div>
+    <span class="eyebrow">Phân tích PDF nội bộ</span>
+    <h1>Tra cứu bằng AI</h1>
+    <p>Chọn đề tài, tạo lần đánh giá AI và lọc ngay trên danh sách tài liệu của đề tài.</p>
+  </div>
+  <div class="agent-flow" aria-label="Quy trình tra cứu bằng AI">
+    <span><b>01</b> Chọn đề tài</span><i>→</i><span><b>02</b> Đánh giá PDF</span><i>→</i><span><b>03</b> Lọc tài liệu</span>
+  </div>
+</section>
+
+<section class="card ai-topic-picker">
+  <div class="section-heading"><div><span class="eyebrow">Bước 1</span><h2>Chọn đề tài cần tra cứu</h2><p>Danh sách tài liệu và các lần đánh giá AI sẽ được giới hạn trong đề tài này.</p></div></div>
+  <form method="get" action="/tra-cuu-ai" class="topic-picker-form">
+    <select name="topic_id" required>
+      <option value="">-- Chọn đề tài --</option>
+      {% for topic in topics %}<option value="{{ topic.id }}" {% if selected_topic and topic.id == selected_topic.id %}selected{% endif %}>{{ topic.ten_de_tai }}</option>{% endfor %}
+    </select>
+    <button type="submit">Mở tài liệu đề tài</button>
+  </form>
+</section>
+
+{% if selected_topic %}
+<section class="topic-hero ai-topic-summary">
+  <div class="topic-hero-copy">
+    <div class="topic-hero-label"><span class="eyebrow">Đề tài đang tra cứu</span></div>
+    <h1>{{ selected_topic.ten_de_tai }}</h1>
+    <p>{{ selected_topic.mo_ta or 'Chưa có mô tả.' }}</p>
+  </div>
+</section>
+
+<details class="card ai-form-card">
+  <summary class="section-heading"><div><span class="eyebrow">Bước 2</span><h2>Tạo đánh giá AI</h2><p>AI chỉ phân tích các PDF đã tải trong những lần tìm kiếm bạn chọn.</p></div><span class="summary-chevron" aria-hidden="true"></span></summary>
+  <form action="/tra-cuu-ai" method="post" class="form-grid ai-search-form" data-search-form>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input type="hidden" name="topic_id" value="{{ selected_topic.id }}">
+    <label class="ai-wide">Chọn một hoặc nhiều lần tìm kiếm
+      <select name="source_search_ids" multiple size="{% if source_options|length < 6 %}{{ source_options|length if source_options else 1 }}{% else %}6{% endif %}" required {% if not source_options %}disabled{% endif %}>
+        {% for item in source_options %}<option value="{{ item.search.id }}">Lần {{ item.search.lan }} · {{ item.total_documents }} tài liệu · {{ item.pdf_documents }} có PDF</option>{% else %}<option>Chưa có lần tìm kiếm thông thường</option>{% endfor %}
+      </select>
+      <small class="hint">Giữ Ctrl hoặc Command để chọn nhiều lần.</small>
+    </label>
+    <label class="ai-wide">Nội dung yêu cầu bằng tiếng Việt hoặc tiếng Anh <span class="required-mark">Bắt buộc</span>
+      <textarea name="ai_request" rows="5" required placeholder="Ví dụ: Chỉ chấp nhận bài đưa Transformational Leadership và Employee Engagement vào giả thuyết, mô hình hoặc phân tích."></textarea>
+      <small class="hint">Có thể nhập tiếng Việt hoặc tiếng Anh. Ví dụ: Phải liên quan đến Malaysia; Trong mô hình phải có Customer Satisfaction; must be related to a bank; Exclude papers published by MDPI.</small>
+    </label>
+    <button class="ai-wide ai-submit" type="submit" {% if not source_options %}disabled{% endif %} data-submit-text="Hệ thống AI đang phân tích…" data-search-clock>Bắt đầu tra cứu</button>
+  </form>
+</details>
+
+{% if ai_lookup %}
+<div class="card ai-progress" data-ai-progress-url="/tra-cuu-ai/{{ ai_lookup.id }}/tien-do" data-ai-progress-status="{{ ai_lookup.trang_thai }}" data-elapsed-ms="{{ ai_elapsed_ms }}">
+  <div class="ai-progress-head"><div><strong>Đánh giá AI ngày {{ ai_lookup.ngay_tao.strftime('%d/%m/%Y %H:%M') }} · Thời gian chạy: <span data-ai-elapsed>{{ ai_elapsed_ms|format_elapsed }}</span></strong><small>Nguồn: {% for item in source_searches %}Lần {{ item.lan }}{% if not loop.last %}, {% endif %}{% endfor %} · {{ ai_lookup.noi_dung_yeu_cau }}</small></div><span data-progress-label>{{ progress.finished }}/{{ progress.total }} đã xử lý</span></div>
+  <div class="progress-track"><span data-progress-bar style="width: {{ progress.percent }}%"></span></div>
+  <div class="progress-stats"><span><b data-progress-completed>{{ progress.completed }}</b> Đã đánh giá</span><span><b data-progress-waiting>{{ progress.waiting + progress.processing }}</b> Đang chờ</span><span><b data-progress-no-pdf>{{ progress.without_pdf }}</b> Không có PDF</span><span><b data-progress-failed>{{ progress.failed }}</b> Lỗi</span></div>
+</div>
+{% if ai_lookup.dieu_kien_ai %}<details class="card ai-understanding"><summary>Điều hệ thống AI đã hiểu</summary><div><p>{{ ai_lookup.dieu_kien_ai.dien_giai_ngan_gon }}</p><ol>{% for condition in ai_lookup.dieu_kien_ai.dieu_kien_nguyen_tu %}<li><strong>{{ condition.loai|replace('_', ' ') }}</strong> · {{ condition.noi_dung }} · trọng số {{ condition.trong_so }}</li>{% endfor %}</ol></div></details>{% endif %}
+{% endif %}
+
+<section class="documents-section">
+  <div class="section-heading"><div><span class="eyebrow">Bước 3</span><h2>Tài liệu trong đề tài</h2><p>Lọc theo đánh giá AI hoặc thông tin tài liệu.</p></div><div class="document-actions"><strong class="document-count">Tổng số: {{ document_count }} tài liệu</strong><a class="button secondary" href="/de-tai/{{ selected_topic.id }}/tai-pdf/tai-tat-ca{% if request.url.query %}?{{ request.url.query }}{% endif %}">Tải tất cả PDF</a></div></div>
+  <details class="filter-panel">
+    <summary class="button secondary filter-toggle">Bộ lọc tài liệu <span class="summary-chevron" aria-hidden="true"></span></summary>
+  <form method="get" action="/tra-cuu-ai" class="filter-bar" data-omit-empty-uuid>
+    <input type="hidden" name="topic_id" value="{{ selected_topic.id }}">
+    <input name="keyword" value="{{ filters.keyword or '' }}" placeholder="Từ khóa">
+    <input name="author" value="{{ filters.author or '' }}" placeholder="Tác giả">
+    <input type="number" name="year_from" value="{{ filters.year_from or '' }}" placeholder="Năm từ" min="1000" max="9999">
+    <input type="number" name="year_to" value="{{ filters.year_to or '' }}" placeholder="Năm đến" min="1000" max="9999">
+    <select name="status_id"><option value="">Mọi trạng thái</option><option value="without_status" {% if filters.without_status %}selected{% endif %}>Không có trạng thái</option>{% for item in document_statuses %}<option value="{{ item.id }}" {% if filters.status_id == item.id %}selected{% endif %}>{{ item.ten_trang_thai }}</option>{% endfor %}</select>
+    <select name="quartile"><option value="">Mọi quartile</option>{% for q in ['Q1','Q2','Q3','Q4'] %}<option value="{{ q }}" {% if filters.quartile == q %}selected{% endif %}>{{ q }}</option>{% endfor %}</select>
+    <select name="pdf_status"><option value="">Tình trạng PDF: Tất cả</option><option value="co_pdf" {% if filters.pdf_status == 'co_pdf' %}selected{% endif %}>Có PDF</option><option value="khong_pdf" {% if filters.pdf_status == 'khong_pdf' %}selected{% endif %}>Không có PDF</option></select>
+    <select name="sort"><option value="added_desc" {% if filters.sort == 'added_desc' %}selected{% endif %}>Thêm mới nhất</option><option value="added_asc" {% if filters.sort == 'added_asc' %}selected{% endif %}>Thêm cũ nhất</option><option value="year_desc" {% if filters.sort == 'year_desc' %}selected{% endif %}>Năm giảm dần</option><option value="year_asc" {% if filters.sort == 'year_asc' %}selected{% endif %}>Năm tăng dần</option></select>
+    <select name="lan_tra_cuu_ai"><option value="">Mọi lần đánh giá AI</option>{% for item in ai_lookups %}<option value="{{ item.id }}" {% if ai_lookup and item.id == ai_lookup.id %}selected{% endif %}>{{ item.ngay_tao.strftime('%d/%m/%Y %H:%M') }} · {% if item.thoi_gian_chay_ms is not none %}{{ item.thoi_gian_chay_ms|format_elapsed }}{% else %}Đang chạy{% endif %} · {{ item.trang_thai|replace('_', ' ') }}</option>{% endfor %}</select>
+    <select name="nhan"><option value="">Mọi đánh giá AI</option><option value="phu_hop" {% if filters.ai_label == 'phu_hop' %}selected{% endif %}>Phù hợp</option><option value="khong_phu_hop" {% if filters.ai_label == 'khong_phu_hop' %}selected{% endif %}>Không phù hợp</option><option value="chua_danh_gia" {% if filters.ai_label == 'chua_danh_gia' %}selected{% endif %}>Chưa đánh giá</option></select>
+    <label class="search-round-filter"><span>Lần tìm kiếm</span>
+      <select name="search_numbers" multiple size="{% if available_searches|length < 4 %}{{ available_searches|length if available_searches else 1 }}{% else %}4{% endif %}" {% if not available_searches %}disabled{% endif %}>
+        {% for item in available_searches %}<option value="{{ item.lan }}" {% if item.lan in filters.search_numbers %}selected{% endif %}>Lần {{ item.lan }} · {{ item.tong_ket_qua or 0 }} kết quả</option>{% else %}<option>Chưa có lần tìm kiếm</option>{% endfor %}
+      </select>
+      <small>Giữ Ctrl hoặc Command để chọn nhiều lần.</small>
+    </label>
+    <button type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg> Áp dụng</button>
+    <a class="button secondary" href="/tra-cuu-ai?topic_id={{ selected_topic.id }}">Đặt lại</a>
+  </form>
+  </details>
+  <div id="document-list" class="card-list">
+    {% set topic_id = selected_topic.id %}
+    {% include "partials/document_cards.html" %}
+  </div>
+</section>
+{% endif %}
+{% endblock %}

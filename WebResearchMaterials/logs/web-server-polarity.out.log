@@ -1,0 +1,51 @@
+INFO:     127.0.0.1:64490 - "GET /tra-cuu-ai HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:64490 - "GET /dang-nhap?next=/tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65523 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=cd315340-b501-41a2-8067-13cc9b3ceb89 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50691 - "POST /tra-cuu-ai HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:50691 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=b9b8c84a-b4fe-40fb-815a-89045f4b977f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50691 - "GET /tra-cuu-ai/b9b8c84a-b4fe-40fb-815a-89045f4b977f/tien-do HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50691 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=b9b8c84a-b4fe-40fb-815a-89045f4b977f HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60273 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=&sort=added_desc&lan_tra_cuu_ai=b9b8c84a-b4fe-40fb-815a-89045f4b977f&nhan=phu_hop HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59517 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/tai-lieu/e615dc54-7eab-4021-93a5-6396e988de94 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55365 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56359 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56359 - "GET /static/style.css?v=20260925-10 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:56159 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56159 - "GET /tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56159 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60137 - "POST /tra-cuu-ai HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:60137 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=f8e0e184-9129-406b-9783-a2c1ee936f53 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60137 - "GET /tra-cuu-ai/f8e0e184-9129-406b-9783-a2c1ee936f53/tien-do HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60137 - "GET /tra-cuu-ai?topic_id=f3c2a40b-30ba-4e23-aee8-882481e80a1e&lan_tra_cuu_ai=f8e0e184-9129-406b-9783-a2c1ee936f53 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54690 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49673 - "POST /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/xoa HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:49673 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62611 - "POST /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/sua HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:62611 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50599 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52655 - "POST /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/xoa HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:52655 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56950 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56950 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56950 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/lan-tim-kiem/dcad3329-c290-4102-b191-ad67be576bc9/tien-do-pdf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63418 - "POST /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/sua HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:63418 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59872 - "POST /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/sua HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:59872 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57793 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63768 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/tai-lieu/e615dc54-7eab-4021-93a5-6396e988de94 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50186 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50181 - "POST /dang-xuat HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:50181 - "GET /dang-nhap HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50181 - "GET /static/style.css?v=20260925-10 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:50181 - "POST /dang-nhap HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:50181 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63682 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63682 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/lan-tim-kiem/dcad3329-c290-4102-b191-ad67be576bc9/tien-do-pdf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /danh-muc/de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /de-tai/f3c2a40b-30ba-4e23-aee8-882481e80a1e/tai-lieu/ec867d48-d01d-4e04-bef0-2922225d1095 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64408 - "GET /tep/5fdc3fcb-ce55-470f-ac63-57c2928e61da HTTP/1.1" 200 OK

@@ -1,0 +1,61 @@
+INFO:     127.0.0.1:62169 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60997 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60997 - "GET /static/style.css?v=20260925-9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53780 - "GET /static/app.js?v=20260925-8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60997 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:60997 - "POST /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-pdf/tiep-tuc HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:60997 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60823 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60823 - "POST /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-pdf/tai-lai-loi HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:60823 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60823 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/lan-tim-kiem/c13e4415-44f7-4896-83d8-758784a28554/tien-do-pdf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60823 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50735 - "POST /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-pdf/tai-lai-loi HTTP/1.1" 303 See Other
+INFO:     127.0.0.1:50735 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50735 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/lan-tim-kiem/c13e4415-44f7-4896-83d8-758784a28554/tien-do-pdf HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50735 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62181 - "GET /static/style.css?v=20260925-9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59957 - "GET /static/app.js?v=20260925-8 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59957 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:62181 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62991 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce?keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=co_pdf&sort=added_desc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62991 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=co_pdf&sort=added_desc&offset=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62991 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=co_pdf&sort=added_desc&offset=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62991 - "GET /tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62991 - "GET /tra-cuu-ai?topic_id=2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57300 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/f3cced79-aaae-4b6a-86be-713fa85a5ceb HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63488 - "GET /tra-cuu-ai?topic_id=2f48c8ba-09bc-435f-870d-c184fc82ddce&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=co_pdf&sort=added_desc&lan_tra_cuu_ai=&nhan= HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:63488 - "GET /tra-cuu-ai?topic_id=2f48c8ba-09bc-435f-870d-c184fc82ddce&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=co_pdf&sort=added_desc&lan_tra_cuu_ai=&nhan= HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:63488 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63193 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/a0df30f6-75af-401a-bbe0-fd8dd3c3ade2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63193 - "GET /tep/cd0ff166-ced3-494f-86f8-54619666f68b HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65514 - "GET /de-tai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65514 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/a0df30f6-75af-401a-bbe0-fd8dd3c3ade2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=20 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=40 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=50 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=60 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=70 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=80 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=90 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=110 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=120 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=130 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=140 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=150 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=160 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=170 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=180 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=190 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56702 - "GET /de-tai/2f48c8ba-09bc-435f-870d-c184fc82ddce/tai-lieu/tai-them?offset=200 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52608 - "GET /tra-cuu-ai HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52608 - "GET /static/style.css?v=20260925-9 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:63606 - "GET /static/app.js?v=20260925-8 HTTP/1.1" 304 Not Modified
+INFO:     127.0.0.1:62214 - "GET /tra-cuu-ai?topic_id=2f48c8ba-09bc-435f-870d-c184fc82ddce HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49735 - "GET /tra-cuu-ai?topic_id=2f48c8ba-09bc-435f-870d-c184fc82ddce&keyword=&author=&year_from=&year_to=&status_id=&quartile=&pdf_status=co_pdf&sort=added_desc&lan_tra_cuu_ai=&nhan= HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:50796 - "GET /dang-nhap HTTP/1.1" 200 OK

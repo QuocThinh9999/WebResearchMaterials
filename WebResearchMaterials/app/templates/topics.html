@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Danh sách đề tài{% endblock %}
+{% block content %}
+<div class="page-heading">
+  <div>
+    <span class="eyebrow">Không gian làm việc</span>
+    <h1>Đề tài nghiên cứu</h1>
+    <p>Tổ chức đề tài, theo dõi tiến độ và tập hợp nguồn học thuật tại một nơi.</p>
+  </div>
+  <details class="action-panel">
+    <summary class="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Thêm đề tài</summary>
+    <form action="/de-tai/them" method="post" class="form-grid panel-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Tên đề tài<input name="name" maxlength="500" required></label>
+      <label>Mô tả<textarea name="description" rows="4"></textarea></label>
+      <label>Trạng thái<select name="status_id" required>{% for item in statuses %}<option value="{{ item.id }}">{{ item.ten_trang_thai }}</option>{% endfor %}</select></label>
+      <button type="submit">Lưu đề tài</button>
+    </form>
+  </details>
+</div>
+<form method="get" action="/de-tai" class="filter-bar topic-filter-bar" aria-label="Tìm kiếm đề tài">
+  <input name="keyword" value="{{ topic_filters.keyword or '' }}" placeholder="Tên đề tài" aria-label="Tên đề tài">
+  <select name="creator_id" aria-label="Người tạo">
+    <option value="">Mọi người tạo</option>
+    {% for creator in creators %}<option value="{{ creator.id }}" {% if topic_filters.creator_id == creator.id %}selected{% endif %}>{{ creator.ten_nguoi_dung }} ({{ creator.ten_dang_nhap }})</option>{% endfor %}
+  </select>
+  <select name="status_id" aria-label="Trạng thái">
+    <option value="">Mọi trạng thái</option>
+    {% for item in statuses %}<option value="{{ item.id }}" {% if topic_filters.status_id == item.id %}selected{% endif %}>{{ item.ten_trang_thai }}</option>{% endfor %}
+  </select>
+  <button type="submit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 4.5 4.5"/></svg> Tìm kiếm</button>
+  <a class="button secondary" href="/de-tai">Đặt lại</a>
+</form>
+<div id="topic-list" class="card-list">
+  {% include "partials/topic_cards.html" %}
+</div>
+{% endblock %}
